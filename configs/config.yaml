@@ -1,0 +1,33 @@
+
+data:
+  raw_path: "data/raw/customer_churn.csv"
+  test_size: 0.2
+  random_state: 42
+
+features:
+  id_column: "customerID"
+  target_column: "Churn"
+
+  binary_columns:
+    - "gender"
+    - "Partner"
+    - "Dependents"
+    - "PhoneService"
+    - "PaperlessBilling"
+
+  categorical_columns:
+    - "InternetService"
+    - "Contract"
+    - "PaymentMethod"
+
+  numerical_columns:
+    - "MonthlyCharges"
+    - "TotalCharges"
+    - "tenure"
+
+model:
+  type: "LogisticRegression"
+  max_iter: 1000
+  regularization_c: 1.0
+  random_state: 42
+  save_path: "models/churn_logistic_regression.pkl"
